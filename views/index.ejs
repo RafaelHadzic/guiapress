@@ -1,0 +1,44 @@
+<%- include ('partials/header') -%>
+    <%- include ('partials/homenavbar') %>
+
+        <body>
+            <br>
+            <div class="container">
+                <div class="jumbotron">
+                    <h1 class="display-4">bem vindo ao blog tecnológico!</h1>
+                    <p class="lead">este é meu primeiro sistema complexo em Node.js.</p>
+                    <hr class="my-4">
+                    <p>
+                        como queremos passar a ideia de tecnologia, apenas ignoramos as letras maiúsculas (com exceção
+                        do conteúdo
+                        dos artigos e de nomes próprios, é claro). sinta-se à vontade para publicar seus conteúdos, e,
+                        principalmente, descobrir materiais incríveis enquanto navega em nossas páginas!
+                    </p>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="#" role="button">saiba mais</a>
+                    </p>
+                </div>
+                <% articles.forEach((article)=> { %>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>
+                                <%= article.title %>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <a href="/<%= article.slug %>" class="btn btn-success">ler artigo completo</a>
+                        </div>
+                    </div>
+                    <hr>
+                    <% }) %>
+                        <div class="row">
+                            <div class="col col-12">
+                                <a style="float: right;" href="/articles/page/2">Next >>></a>
+                            </div>
+                            <br>
+                        </div>
+                        <br>
+            </div>
+        </body>
+
+        <%- include ('partials/footer') -%>
