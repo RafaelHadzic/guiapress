@@ -59,7 +59,7 @@ router.post("/authenticate", (req, res) => {
                     id: user.id,
                     email: user.email
                 }
-                res.json(req.session.user)
+                res.redirect("/admin/articles")
             }
             else {
                 res.redirect("/login")
@@ -69,6 +69,11 @@ router.post("/authenticate", (req, res) => {
             res.redirect("/login")
         }
     })
+})
+
+router.get("/logout", (req, res) => {
+    req.session.user = undefined
+    res.redirect("/login")
 })
 
 module.exports = router
